@@ -221,7 +221,7 @@
 
 - name: create config files
   template: src=config/{{ item }} dest={{ gitorious_root }}/app/config/{{ item }} owner=git group=git mode=0644
-  with_items: config_files
+  with_items: "{{ config_files }}"
   notify:
     - restart web
     - restart workers
